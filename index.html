@@ -95,72 +95,12 @@ tp_StartScrollYThreshold = 20
 tp_StartScrollYThresholdFast = 100
 ; Milliseconds interval to check further scrolling. Set this to a
 ; smaller value will make scrolling more fast, and vice versa.
-tp_ScrollCheckInterval = 50 
-
-;; This key/Button activates scrolling
-tp_TriggerKey = MButton
-
-#Persistent
-CoordMode, Mouse, Screen
-Hotkey, %tp_TriggerKey%, tp_TriggerKeyDown
-HotKey, %tp_TriggerKey% Up, tp_TriggerKeyUp
-return
-
-tp_TriggerKeyDown:
-tp_Scroll = n
-MouseGetPos, tp_OrigX, tp_OrigY
-SetTimer, tp_CheckForScrollEventAndExecute, %tp_StartScrollTThreshold%
-return
-
-tp_TriggerKeyUp:
-SetTimer, tp_CheckForScrollEventAndExecute, Off
-;; Send a middle-click if we did not scroll
-if tp_Scroll = n
-    MouseClick, Middle
-return
-
-tp_CheckForScrollEventAndExecute:
-tp_Scroll = y
-SetTimer, tp_CheckForScrollEventAndExecute, %tp_ScrollCheckInterval%
-
-MouseGetPos, tp_NewX, tp_NewY
-tp_DistanceX := tp_NewX - tp_OrigX
-tp_DistanceY := tp_NewY - tp_OrigY
-
-if tp_DistanceY %tp_StartScrollYThresholdFast%
-{
-    MouseClick, WheelDown
-    MouseClick, WheelDown
-} else if tp_DistanceY %tp_StartScrollYThreshold%
-{
-    MouseClick, WheelDown
-} else if tp_DistanceY < -%tp_StartScrollYThresholdFast%
-{
-    MouseClick, WheelUp
-    MouseClick, WheelUp
-} else if tp_DistanceY < -%tp_StartScrollYThreshold%
-{
-    MouseClick, WheelUp
-}
-
-; 0x114 is WM_HSCROLL
-if tp_DistanceX %tp_StartScrollXThreshold%
-{
-    ControlGetFocus, FocusedControl, A
-    SendMessage, 0x114, 1, 0, %FocusedControl%, A
-    SendMessage, 0x114, 1, 0, %FocusedControl%, A
-} else if tp_DistanceX < -%tp_StartScrollXThreshold%
-{
-    ControlGetFocus, FocusedControl, A
-    SendMessage, 0x114, 0, 0, %FocusedControl%, A
-    SendMessage, 0x114, 0, 0, %FocusedControl%, A
-}
-return
-</pre>
-
-<p>With this AHK script, trackpoint behaves normally. This is not the end of the story. Autohotkey is much more powerful. Suppose you have a email account named <code>helloworld@gmail.com</code>, just type <code>h@</code> and let AHK finish for you. Not to mention remapping AltTab to relieve your pinkies.</p>
-<p>TBD.</p>
-
+tp_ScrollCheckInterval = 50
+        
+          <p class="article-more-link">
+            <a href="/2015/09/20/ahk/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
