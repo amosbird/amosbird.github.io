@@ -3,18 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Autohotkey, Thinkpad saviour | Ergonomic Geek</title>
+  <title>Category: Ergonomic | Ergonomic Geek</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Trackpoint driver sucksHave you ever felt that scrolling function is broken on Thinkpad? If so, you must try this script.">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Autohotkey, Thinkpad saviour">
-<meta property="og:url" content="https://amosbird.github.io/2015/09/20/ahk/index.html">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ergonomic Geek">
+<meta property="og:url" content="https://amosbird.github.io/categories/Ergonomic/index.html">
 <meta property="og:site_name" content="Ergonomic Geek">
-<meta property="og:description" content="Trackpoint driver sucksHave you ever felt that scrolling function is broken on Thinkpad? If so, you must try this script.">
-<meta property="og:updated_time" content="2015-09-21T03:21:57.282Z">
+<meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Autohotkey, Thinkpad saviour">
-<meta name="twitter:description" content="Trackpoint driver sucksHave you ever felt that scrolling function is broken on Thinkpad? If so, you must try this script.">
+<meta name="twitter:title" content="Ergonomic Geek">
+<meta name="twitter:description">
   
   
     <link rel="icon" href="/favicon.png">
@@ -80,102 +79,43 @@
           <section id="main">
             <div class="main-body-header">
 
-              <h1 class="header"><a class="page-title-link" href="/categories/Ergonomic/">Ergonomic</a></h1>
+              <h1 class="header"><i class="icon fa fa-folder-open"></i>category : <em class="page-title-link">Ergonomic</em></h1>
             </div>
             <div class="main-body-content">
               
-  <article id="post-ahk" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-      <!--  -->
+      <div class="article-row">
+    
+        
+  <article class="article article-summary">
+    <div class="article-summary-inner">
       
-        <header class="article-header">
-          
+<a href="/2015/09/20/ahk/" class="thumbnail">
   
-    <h1 class="article-title" itemprop="name">
-      Autohotkey, Thinkpad saviour
-    </h1>
+    <span class="thumbnail-image thumbnail-none"></span>
   
-
-        </header>
-      
-      <p class="article-byline">
-        <a href="/2015/09/20/ahk/" class="article-date">
-  <time datetime="2015-09-20T15:18:56.000Z" itemprop="datePublished">2015-09-20</time>
 </a>
-      </p>
-      <div class="article-entry" itemprop="articleBody">
-        <h1 id="Trackpoint_driver_sucks">Trackpoint driver sucks</h1><p>Have you ever felt that scrolling function is broken on Thinkpad? If so, you must try this script.<br><a id="more"></a><br>    ; Milliseconds threshold, hold the middle button for some time<br>    ; exceeding this will start to detect scrolling.<br>    tp_StartScrollTThreshold = 200<br>    ; Pixels threshold, for both X and Y. Only when the mouse movement<br>    ; exceed this threshold will we start scrolling.<br>    tp_StartScrollXThreshold = 20<br>    tp_StartScrollYThreshold = 20<br>    tp_StartScrollYThresholdFast = 100<br>    ; Milliseconds interval to check further scrolling. Set this to a<br>    ; smaller value will make scrolling more fast, and vice versa.<br>    tp_ScrollCheckInterval = 50<br>    ;; This key/Button activates scrolling<br>    tp_TriggerKey = MButton</p>
-<pre><code>#Persistent
-CoordMode, Mouse, Screen
-Hotkey, <span class="var_expand">%tp_TriggerKey%</span>, tp_TriggerKeyDown
-HotKey, <span class="var_expand">%tp_TriggerKey%</span> Up, tp_TriggerKeyUp
-<span class="keyword">return</span>
 
-<span class="label">tp_TriggerKeyDown:</span>
-tp_Scroll = n
-MouseGetPos, tp_OrigX, tp_OrigY
-SetTimer, tp_CheckForScrollEventAndExecute, <span class="var_expand">%tp_StartScrollTThreshold%</span>
-<span class="keyword">return</span>
-
-<span class="label">tp_TriggerKeyUp:</span>
-SetTimer, tp_CheckForScrollEventAndExecute, Off
-<span class="comment">;; Send a middle-click if we did not scroll</span>
-<span class="keyword">if</span> tp_Scroll = n
-    MouseClick, Middle
-<span class="keyword">return</span>
-
-<span class="label">tp_CheckForScrollEventAndExecute:</span>
-tp_Scroll = y
-SetTimer, tp_CheckForScrollEventAndExecute, <span class="var_expand">%tp_ScrollCheckInterval%</span>
-
-MouseGetPos, tp_NewX, tp_NewY
-tp_DistanceX := tp_NewX - tp_OrigX
-tp_DistanceY := tp_NewY - tp_OrigY
-
-<span class="keyword">if</span> tp_DistanceY <span class="var_expand">%tp_StartScrollYThresholdFast%</span>
-{
-    MouseClick, WheelDown
-    MouseClick, WheelDown
-} <span class="keyword">else</span> <span class="keyword">if</span> tp_DistanceY <span class="var_expand">%tp_StartScrollYThreshold%</span>
-{
-    MouseClick, WheelDown
-} <span class="keyword">else</span> <span class="keyword">if</span> tp_DistanceY &lt; -<span class="var_expand">%tp_StartScrollYThresholdFast%</span>
-{
-    MouseClick, WheelUp
-    MouseClick, WheelUp
-} <span class="keyword">else</span> <span class="keyword">if</span> tp_DistanceY &lt; -<span class="var_expand">%tp_StartScrollYThreshold%</span>
-{
-    MouseClick, WheelUp
-}
-
-<span class="comment">; 0x114 is WM_HSCROLL</span>
-<span class="keyword">if</span> tp_DistanceX <span class="var_expand">%tp_StartScrollXThreshold%</span>
-{
-    ControlGetFocus, FocusedControl, <span class="literal">A</span>
-    SendMessage, <span class="number">0</span>x114, <span class="number">1</span>, <span class="number">0</span>, <span class="var_expand">%FocusedControl%</span>, <span class="literal">A</span>
-    SendMessage, <span class="number">0</span>x114, <span class="number">1</span>, <span class="number">0</span>, <span class="var_expand">%FocusedControl%</span>, <span class="literal">A</span>
-} <span class="keyword">else</span> <span class="keyword">if</span> tp_DistanceX &lt; -<span class="var_expand">%tp_StartScrollXThreshold%</span>
-{
-    ControlGetFocus, FocusedControl, <span class="literal">A</span>
-    SendMessage, <span class="number">0</span>x114, <span class="number">0</span>, <span class="number">0</span>, <span class="var_expand">%FocusedControl%</span>, <span class="literal">A</span>
-    SendMessage, <span class="number">0</span>x114, <span class="number">0</span>, <span class="number">0</span>, <span class="var_expand">%FocusedControl%</span>, <span class="literal">A</span>
-}
-<span class="keyword">return</span>
-</code></pre><p>With this AHK script, trackpoint behaves normally. This is not the end of the story. Autohotkey is much more powerful. Suppose you have a email account named <code>helloworld@gmail.com</code>, just type <code>h@</code> and let AHK finish for you. Not to mention remapping AltTab to relieve your pinkies.</p>
-<p>TBD.</p>
-
+      <div class="article-meta">
+        <p class="category"><a class="article-category-link" href="/categories/Ergonomic/">Ergonomic</a></p>
+        <p class="date"><time datetime="2015-09-20T15:18:56.000Z" itemprop="datePublished">2015-09-20</time></p>
       </div>
-      <footer class="article-footer">
-        <a data-url="https://amosbird.github.io/2015/09/20/ahk/" data-id="ciesnxg3j00005kaxpa79u44m" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+      <h2 class="article-title">
+        <a href="/2015/09/20/ahk/" class="title">Autohotkey, Thinkpad saviour</a>
+      </h2>
+      <p class="article-excerpt">
         
-        
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Trackpoint-AHK-Shortcut/">Trackpoint, AHK, Shortcut</a></li></ul>
-
-      </footer>
+        Trackpoint driver sucksHave you ever felt that scrolling function is broken on Thinkpad? If so, you must try this script.
+      </p>
     </div>
   </article>
+
+    
+      </div>
+    
   
   
+
+
 
             </div>
           </section>
@@ -197,8 +137,6 @@ tp_DistanceY := tp_NewY - tp_OrigY
       
     </ul>
   </div>
-  
-    
   
   <div class="widgets-container">
     
