@@ -5,18 +5,18 @@
   
   <title>What can be done with today&#39;s keyboard layout? | Ergonomic Geek</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Talking about keyboard layout with programmers, most time you will hear the word Dvorak. I&amp;#39;m not a fan of this, since switching to these keyboard layouts will be rough if you have a lifetime’s exp">
+  <meta name="description" content="Talking about keyboard layout with programmers, most time you will hear the word Dvorak. I&amp;#39;m not a fan of this, since switching to these keyboard layouts will be rough if you have a lifetime&amp;#39;s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="What can be done with today's keyboard layout?">
 <meta property="og:url" content="https://amosbird.github.io/2015/09/21/remap/index.html">
 <meta property="og:site_name" content="Ergonomic Geek">
-<meta property="og:description" content="Talking about keyboard layout with programmers, most time you will hear the word Dvorak. I&amp;#39;m not a fan of this, since switching to these keyboard layouts will be rough if you have a lifetime’s exp">
+<meta property="og:description" content="Talking about keyboard layout with programmers, most time you will hear the word Dvorak. I&amp;#39;m not a fan of this, since switching to these keyboard layouts will be rough if you have a lifetime&amp;#39;s">
 <meta property="og:image" content="https://amosbird.github.io/images/keyboard.jpg">
 <meta property="og:image" content="https://amosbird.github.io/images/remap.png">
-<meta property="og:updated_time" content="2015-09-21T16:16:47.926Z">
+<meta property="og:updated_time" content="2015-09-22T15:06:55.534Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="What can be done with today's keyboard layout?">
-<meta name="twitter:description" content="Talking about keyboard layout with programmers, most time you will hear the word Dvorak. I&amp;#39;m not a fan of this, since switching to these keyboard layouts will be rough if you have a lifetime’s exp">
+<meta name="twitter:description" content="Talking about keyboard layout with programmers, most time you will hear the word Dvorak. I&amp;#39;m not a fan of this, since switching to these keyboard layouts will be rough if you have a lifetime&amp;#39;s">
   
   
     <link rel="icon" href="/images/favicon.ico">
@@ -107,7 +107,7 @@
       </p>
       <div class="article-entry" itemprop="articleBody">
         <p><img src="/images/keyboard.jpg" alt="">
-Talking about keyboard layout with programmers, most time you will hear the word <strong>Dvorak</strong>. I&#39;m not a fan of this, since switching to these keyboard layouts will be rough if you have a lifetime’s experience with QWERTY. You’ll need months — maybe even as much as a year — to get back up to your current speed. When you use someone else’s computer, you’ll have to use the QWERTY layout — so all your Dvorak muscle memory will only hurt you. iPads and iPhones only support the QWERTY layout for their touch-screen keyboards, so you can’t rearrange the software keyboard’s layout to match your Dvorak layout.</p>
+Talking about keyboard layout with programmers, most time you will hear the word <strong>Dvorak</strong>. I&#39;m not a fan of this, since switching to these keyboard layouts will be rough if you have a lifetime&#39;s experience with QWERTY. You&#39;ll need months -- maybe even as much as a year -- to get back up to your current speed. When you use someone else&#39;s computer, you&#39;ll have to use the QWERTY layout -- so all your Dvorak muscle memory will only hurt you. iPads and iPhones only support the QWERTY layout for their touch-screen keyboards, so you can&#39;t rearrange the software keyboard&#39;s layout to match your Dvorak layout.</p>
 <p>So we need to improve the existence, a.k.a the QWERTY one. Not long ago I&#39;ve posted a question on <a href="http://deskthority.net/keyboards-f2/trackpoint-keyboard-with-split-spacebar-t10063.html" target="_blank" rel="external">a keyboard forum</a>. I think splitting spacebar is the most ergonomic choice we can take on QWERTY layout, since nobody types space with both hands. One more key modifier will provides a lot available shortcuts. Sadly, till now I still cannot find a laptop with such keyboard design. Also, trackpoint is a must for me. So I&#39;m going to rearange keys on my t450s.</p>
 <hr>
 <h2 id="Remapping_key_modifiers">Remapping key modifiers</h2><p><img src="/images/remap.png" alt=""></p>
@@ -131,6 +131,16 @@ Talking about keyboard layout with programmers, most time you will hear the word
 </ol>
 <hr>
 <p>If we could design a keyboard from ground up today, it should be much more satisfying. However, backward compatibility is everywhere in computer science. Whatever ditches it, it dies.</p>
+<h2 id="Update_1">Update 1</h2><p>I&#39;ve changed my keyboard remapping about a day, it&#39;s quite exciting. Now I&#39;m able to switch among tons of apps with one comb press. Here is what I&#39;ve done:</p>
+<ol>
+<li>Reenable <code>CapsLock</code>, use it as a new key modifier.</li>
+<li><p>Write a AHK script to bind windows with key combinations.</p>
+<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">ToggleWinMinimize(TheWindowTitle)</span><br><span class="line">&#123;</span><br><span class="line">	SetTitleMatchMode,<span class="number">2</span></span><br><span class="line">	DetectHiddenWindows, Off</span><br><span class="line">	IfWinActive, ahk_exe <span class="var_expand">%TheWindowTitle%</span></span><br><span class="line">	&#123;</span><br><span class="line">		WinMinimize, ahk_exe <span class="var_expand">%TheWindowTitle%</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">Else</span></span><br><span class="line">	&#123;</span><br><span class="line">		IfWinExist, ahk_exe <span class="var_expand">%TheWindowTitle%</span></span><br><span class="line">		&#123;</span><br><span class="line">			WinGet, winid, ID, ahk_exe <span class="var_expand">%TheWindowTitle%</span></span><br><span class="line">			WinActivate, ahk_exe <span class="var_expand">%TheWindowTitle%</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">Return</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="label">CapsLock &amp; f::</span>ToggleWinMinimize(<span class="string">"firefox.exe"</span>)</span><br><span class="line"><span class="label">CapsLock &amp; t::</span>ToggleWinMinimize(<span class="string">"code.exe"</span>)</span><br><span class="line"><span class="label">CapsLock &amp; i::</span>ToggleWinMinimize(<span class="string">"qq.exe"</span>)</span><br><span class="line"><span class="label">CapsLock &amp; c::</span>ToggleWinMinimize(<span class="string">"cmd.exe"</span>)</span><br><span class="line"><span class="label">CapsLock &amp; j::</span>ToggleWinMinimize(<span class="string">"idea.exe"</span>)</span><br><span class="line"><span class="label">CapsLock &amp; k::</span>ToggleWinMinimize(<span class="string">"clion64.exe"</span>)</span><br><span class="line"><span class="label">CapsLock &amp; v::</span>ToggleWinMinimize(<span class="string">"devenv.exe"</span>)</span><br><span class="line"><span class="label">CapsLock &amp; m::</span>ToggleWinMinimize(<span class="string">"markdownpad2.exe"</span>)</span><br><span class="line"><span class="label">CapsLock &amp; s::</span>ToggleWinMinimize(<span class="string">"xshell.exe"</span>)</span><br><span class="line"><span class="label">CapsLock &amp; o::</span>ToggleWinMinimize(<span class="string">"outlook.exe"</span>)</span><br><span class="line"><span class="label">CapsLock &amp; w::</span>ToggleWinMinimize(<span class="string">"winword.exe"</span>)</span><br><span class="line"><span class="label">CapsLock &amp; p::</span>ToggleWinMinimize(<span class="string">"powerpnt.exe"</span>)</span><br></pre></td></tr></table></figure>
+</p>
+</li>
+<li><p>Make all apps visible on the task bar.</p>
+</li>
+</ol>
 
       </div>
       <footer class="article-footer">
