@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://amosbird.github.io/2016/05/19/Windows-window-manager/index.html">
 <meta property="og:site_name" content="Ergonomic Geek">
 <meta property="og:description" content="What is the most ergonomic way to jump to the target window on Windows? This question bothers me long before I start pursuing ergonomic research.I’ve tried so many tools, the most recent one is GoToWi">
-<meta property="og:updated_time" content="2016-05-19T11:48:52.207Z">
+<meta property="og:updated_time" content="2016-05-19T12:36:25.574Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Windows window manager?">
 <meta name="twitter:description" content="What is the most ergonomic way to jump to the target window on Windows? This question bothers me long before I start pursuing ergonomic research.I’ve tried so many tools, the most recent one is GoToWi">
@@ -121,17 +121,17 @@ ga('send', 'pageview');
 <p>The concept of my ergo switching is, one comb-key for a specific window. For instance, ‘C-M-e’ =&gt; emacs, ‘C-M-f’ =&gt; firefox etc. I’ve never keeped more than<br>ten applications at one time, so remembering these key bindings aren’t a big deal. This switching strategy delivers instant responding time which is really smooth. </p>
 <p>Here is what I’ve done:</p>
 <ol>
-<li><p>Write a AHK script to bind windows with key combinations.</p>
+<li><p>Write a AHK script to bind windows with key combinations.  </p>
 <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">ToggleWinMinimize(TheWindowTitle)</span><br><span class="line">&#123;</span><br><span class="line">	SetTitleMatchMode,<span class="number">2</span></span><br><span class="line">	DetectHiddenWindows, Off</span><br><span class="line">	IfWinActive, ahk_exe <span class="var_expand">%TheWindowTitle%</span></span><br><span class="line">	&#123;</span><br><span class="line">		WinMinimize, ahk_exe <span class="var_expand">%TheWindowTitle%</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">Else</span></span><br><span class="line">	&#123;</span><br><span class="line">		IfWinExist, ahk_exe <span class="var_expand">%TheWindowTitle%</span></span><br><span class="line">		&#123;</span><br><span class="line">			WinGet, winid, ID, ahk_exe <span class="var_expand">%TheWindowTitle%</span></span><br><span class="line">			WinActivate, ahk_exe <span class="var_expand">%TheWindowTitle%</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">Return</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="label">^!f::</span>ToggleWinMinimize(<span class="string">"firefox.exe"</span>)</span><br><span class="line"><span class="label">^!i::</span>ToggleWinMinimize(<span class="string">"qq.exe"</span>)</span><br><span class="line"><span class="label">^!c::</span>ToggleWinMinimize(<span class="string">"conemu64.exe"</span>)</span><br><span class="line"><span class="label">^!v::</span>ToggleWinMinimize(<span class="string">"devenv.exe"</span>)</span><br><span class="line"><span class="label">^!w::</span>ToggleWinMinimize(<span class="string">"winword.exe"</span>)</span><br><span class="line"><span class="label">^!p::</span>ToggleWinMinimize(<span class="string">"powerpnt.exe"</span>)</span><br><span class="line"><span class="label">^!e::</span>ToggleWinMinimize(<span class="string">"emacs.exe"</span>)</span><br><span class="line"><span class="label">^!r::</span>ToggleWinMinimize(<span class="string">"SumatraPDF.exe"</span>)</span><br><span class="line"><span class="label">^!k::</span>ToggleWinMinimize(<span class="string">"skype.exe"</span>)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Make all apps visible on the task bar.</p>
+<li><p>Make all apps visible on the task bar.  </p>
 </li>
 </ol>
 <p>Please give it a try. It’s very satisfying. If you have any question, feel free to leave a comment. Any suggestions are very much appreciated.</p>
 
       </div>
       <footer class="article-footer">
-        <a data-url="https://amosbird.github.io/2016/05/19/Windows-window-manager/" data-id="cioe8ov7u000eaabt4qfjsm6n" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+        <a data-url="https://amosbird.github.io/2016/05/19/Windows-window-manager/" data-id="cioea7w33000e4abtdrjmorh4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
         
           <a href="https://amosbird.github.io/2016/05/19/Windows-window-manager/#comments" class="article-comment-link"><i class="fa fa-comments"></i>Comments</a>
         
