@@ -13,7 +13,7 @@
 <meta property="og:description" content="Talking about keyboard layout with programmers, most time you will hear the word Dvorak. I’m not a fan of this, since switching to these keyboard layouts will be rough if you have a lifetime’s experie">
 <meta property="og:image" content="https://amosbird.github.io/images/keyboard.jpg">
 <meta property="og:image" content="https://amosbird.github.io/images/remap.png">
-<meta property="og:updated_time" content="2015-09-26T16:30:07.552Z">
+<meta property="og:updated_time" content="2016-05-19T11:47:30.460Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="What can be done with today's keyboard layout?">
 <meta name="twitter:description" content="Talking about keyboard layout with programmers, most time you will hear the word Dvorak. I’m not a fan of this, since switching to these keyboard layouts will be rough if you have a lifetime’s experie">
@@ -143,19 +143,10 @@ ga('send', 'pageview');
 </ol>
 <hr>
 <p>If we could design a keyboard from ground up today, it should be much more satisfying. However, backward compatibility is everywhere in computer science. Whatever ditches it, it dies.</p>
-<h2 id="Update_1">Update 1</h2><p>I’ve changed my keyboard remapping about a day, it’s quite exciting. Now I’m able to switch among tons of apps with one comb press. Here is what I’ve done:</p>
-<ol>
-<li>Reenable <code>CapsLock</code>, use it as a new key modifier.</li>
-<li><p>Write a AHK script to bind windows with key combinations.</p>
-<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">ToggleWinMinimize(TheWindowTitle)</span><br><span class="line">&#123;</span><br><span class="line">	SetTitleMatchMode,<span class="number">2</span></span><br><span class="line">	DetectHiddenWindows, Off</span><br><span class="line">	IfWinActive, ahk_exe <span class="var_expand">%TheWindowTitle%</span></span><br><span class="line">	&#123;</span><br><span class="line">		WinMinimize, ahk_exe <span class="var_expand">%TheWindowTitle%</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">Else</span></span><br><span class="line">	&#123;</span><br><span class="line">		IfWinExist, ahk_exe <span class="var_expand">%TheWindowTitle%</span></span><br><span class="line">		&#123;</span><br><span class="line">			WinGet, winid, ID, ahk_exe <span class="var_expand">%TheWindowTitle%</span></span><br><span class="line">			WinActivate, ahk_exe <span class="var_expand">%TheWindowTitle%</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">Return</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="label">CapsLock &amp; f::</span>ToggleWinMinimize(<span class="string">"firefox.exe"</span>)</span><br><span class="line"><span class="label">CapsLock &amp; t::</span>ToggleWinMinimize(<span class="string">"code.exe"</span>)</span><br><span class="line"><span class="label">CapsLock &amp; i::</span>ToggleWinMinimize(<span class="string">"qq.exe"</span>)</span><br><span class="line"><span class="label">CapsLock &amp; c::</span>ToggleWinMinimize(<span class="string">"cmd.exe"</span>)</span><br><span class="line"><span class="label">CapsLock &amp; j::</span>ToggleWinMinimize(<span class="string">"idea.exe"</span>)</span><br><span class="line"><span class="label">CapsLock &amp; k::</span>ToggleWinMinimize(<span class="string">"clion64.exe"</span>)</span><br><span class="line"><span class="label">CapsLock &amp; v::</span>ToggleWinMinimize(<span class="string">"devenv.exe"</span>)</span><br><span class="line"><span class="label">CapsLock &amp; m::</span>ToggleWinMinimize(<span class="string">"markdownpad2.exe"</span>)</span><br><span class="line"><span class="label">CapsLock &amp; s::</span>ToggleWinMinimize(<span class="string">"xshell.exe"</span>)</span><br><span class="line"><span class="label">CapsLock &amp; o::</span>ToggleWinMinimize(<span class="string">"outlook.exe"</span>)</span><br><span class="line"><span class="label">CapsLock &amp; w::</span>ToggleWinMinimize(<span class="string">"winword.exe"</span>)</span><br><span class="line"><span class="label">CapsLock &amp; p::</span>ToggleWinMinimize(<span class="string">"powerpnt.exe"</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Make all apps visible on the task bar.</p>
-</li>
-</ol>
 
       </div>
       <footer class="article-footer">
-        <a data-url="https://amosbird.github.io/2015/09/21/remap/" data-id="cinsyzjjt0000u5btfk0ofrdc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+        <a data-url="https://amosbird.github.io/2015/09/21/remap/" data-id="cioe8ov6z0000aabtrfskewwp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
         
           <a href="https://amosbird.github.io/2015/09/21/remap/#comments" class="article-comment-link"><i class="fa fa-comments"></i>Comments</a>
         
@@ -198,6 +189,16 @@ ga('send', 'pageview');
     
 <nav id="article-nav">
   
+    <a href="/2016/05/19/Windows-window-manager/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">newer</strong>
+      <p class="article-nav-title">
+        
+          Windows window manager?
+        
+      </p>
+      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+  
   
     <a href="/2015/09/20/ahk/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">older</strong>
@@ -215,6 +216,25 @@ ga('send', 'pageview');
     <h3 class="widget-title">recents</h3>
     <div class="widget">
       <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/05/19/Windows-window-manager/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/05/19/Windows-window-manager/" class="title">Windows window manager?</a></p>
+              <p class="item-date"><time datetime="2016-05-19T11:16:42.000Z" itemprop="datePublished">2016-05-19</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -275,7 +295,7 @@ ga('send', 'pageview');
   <div class="widget-wrap widget-list">
     <h3 class="widget-title">archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
